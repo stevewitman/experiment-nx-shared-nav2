@@ -1,0 +1,147 @@
+{
+  "version": 1,
+  "cli": {
+    "defaultCollection": "@nrwl/angular"
+  },
+  "defaultProject": "appone",
+  "schematics": {
+    "@nrwl/angular": {
+      "application": {
+        "linter": "eslint"
+      },
+      "library": {
+        "linter": "eslint"
+      },
+      "storybook-configuration": {
+        "linter": "eslint"
+      }
+    },
+    "@nrwl/angular:application": {
+      "style": "scss",
+      "linter": "eslint",
+      "unitTestRunner": "jest",
+      "e2eTestRunner": "cypress"
+    },
+    "@nrwl/angular:library": {
+      "style": "scss",
+      "linter": "eslint",
+      "unitTestRunner": "jest"
+    },
+    "@nrwl/angular:component": {
+      "style": "scss"
+    }
+  },
+  "projects": {
+    "appone": {
+      "projectType": "application",
+      "root": "apps/appone",
+      "sourceRoot": "apps/appone/src",
+      "prefix": "reusable-nav2",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/apps/appone",
+            "index": "apps/appone/src/index.html",
+            "main": "apps/appone/src/main.ts",
+            "polyfills": "apps/appone/src/polyfills.ts",
+            "tsConfig": "apps/appone/tsconfig.app.json",
+            "aot": true,
+            "assets": ["apps/appone/src/favicon.ico", "apps/appone/src/assets"],
+            "styles": ["apps/appone/src/styles.scss"],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "apps/appone/src/environments/environment.ts",
+                  "with": "apps/appone/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "appone:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "appone:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "appone:build"
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "apps/appone/src/**/*.ts",
+              "apps/appone/src/**/*.html"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/apps/appone"],
+          "options": {
+            "jestConfig": "apps/appone/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "appone-e2e": {
+      "root": "apps/appone-e2e",
+      "sourceRoot": "apps/appone-e2e/src",
+      "projectType": "application",
+      "architect": {
+        "e2e": {
+          "builder": "@nrwl/cypress:cypress",
+          "options": {
+            "cypressConfig": "apps/appone-e2e/cypress.json",
+            "tsConfig": "apps/appone-e2e/tsconfig.e2e.json",
+            "devServerTarget": "appone:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "appone:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["apps/appone-e2e/**/*.{js,ts}"]
+          }
+        }
+      }
+    }
+  }
+}
