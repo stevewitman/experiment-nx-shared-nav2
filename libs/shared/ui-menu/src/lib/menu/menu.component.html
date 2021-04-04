@@ -1,0 +1,15 @@
+<div class="header" routerLinkActive="any-link-active">
+  <a class="logo" [routerLink]="['home']">AppOne</a>
+  <nav>
+    <ul class="nav-links">
+      <li *ngFor="let item of navConfig.menuItems">
+        <a [routerLink]="[item.route]" routerLinkActive="router-link-active"
+          >{{item.text}}</a
+        >
+      </li>
+    </ul>
+  </nav>
+  <div class="nav-links">
+    <a class="signin">AUTH</a>
+  </div>
+</div>

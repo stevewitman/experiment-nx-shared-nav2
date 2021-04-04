@@ -1,7 +1,8 @@
 {
   "version": 1,
   "cli": {
-    "defaultCollection": "@nrwl/angular"
+    "defaultCollection": "@nrwl/angular",
+    "analytics": false
   },
   "defaultProject": "appone",
   "schematics": {
@@ -47,8 +48,13 @@
             "polyfills": "apps/appone/src/polyfills.ts",
             "tsConfig": "apps/appone/tsconfig.app.json",
             "aot": true,
-            "assets": ["apps/appone/src/favicon.ico", "apps/appone/src/assets"],
-            "styles": ["apps/appone/src/styles.scss"],
+            "assets": [
+              "apps/appone/src/favicon.ico",
+              "apps/appone/src/assets"
+            ],
+            "styles": [
+              "apps/appone/src/styles.scss"
+            ],
             "scripts": []
           },
           "configurations": {
@@ -109,7 +115,9 @@
         },
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/apps/appone"],
+          "outputs": [
+            "coverage/apps/appone"
+          ],
           "options": {
             "jestConfig": "apps/appone/jest.config.js",
             "passWithNoTests": true
@@ -138,7 +146,171 @@
         "lint": {
           "builder": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": ["apps/appone-e2e/**/*.{js,ts}"]
+            "lintFilePatterns": [
+              "apps/appone-e2e/**/*.{js,ts}"
+            ]
+          }
+        }
+      }
+    },
+    "appone-shell": {
+      "projectType": "library",
+      "root": "libs/appone/shell",
+      "sourceRoot": "libs/appone/shell/src",
+      "prefix": "reusable-nav2",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/appone/shell/src/**/*.ts",
+              "libs/appone/shell/src/**/*.html"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/libs/appone/shell"
+          ],
+          "options": {
+            "jestConfig": "libs/appone/shell/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "shared-ui-menu": {
+      "projectType": "library",
+      "root": "libs/shared/ui-menu",
+      "sourceRoot": "libs/shared/ui-menu/src",
+      "prefix": "reusable-nav2",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/shared/ui-menu/src/**/*.ts",
+              "libs/shared/ui-menu/src/**/*.html"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/libs/shared/ui-menu"
+          ],
+          "options": {
+            "jestConfig": "libs/shared/ui-menu/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "appone-feat-home": {
+      "projectType": "library",
+      "root": "libs/appone/feat-home",
+      "sourceRoot": "libs/appone/feat-home/src",
+      "prefix": "reusable-nav2",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/appone/feat-home/src/**/*.ts",
+              "libs/appone/feat-home/src/**/*.html"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/libs/appone/feat-home"
+          ],
+          "options": {
+            "jestConfig": "libs/appone/feat-home/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "appone-feat-about": {
+      "projectType": "library",
+      "root": "libs/appone/feat-about",
+      "sourceRoot": "libs/appone/feat-about/src",
+      "prefix": "reusable-nav2",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/appone/feat-about/src/**/*.ts",
+              "libs/appone/feat-about/src/**/*.html"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/libs/appone/feat-about"
+          ],
+          "options": {
+            "jestConfig": "libs/appone/feat-about/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "appone-feat-contact": {
+      "projectType": "library",
+      "root": "libs/appone/feat-contact",
+      "sourceRoot": "libs/appone/feat-contact/src",
+      "prefix": "reusable-nav2",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/appone/feat-contact/src/**/*.ts",
+              "libs/appone/feat-contact/src/**/*.html"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/libs/appone/feat-contact"
+          ],
+          "options": {
+            "jestConfig": "libs/appone/feat-contact/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "appone-feat-blog": {
+      "projectType": "library",
+      "root": "libs/appone/feat-blog",
+      "sourceRoot": "libs/appone/feat-blog/src",
+      "prefix": "reusable-nav2",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/appone/feat-blog/src/**/*.ts",
+              "libs/appone/feat-blog/src/**/*.html"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/libs/appone/feat-blog"
+          ],
+          "options": {
+            "jestConfig": "libs/appone/feat-blog/jest.config.js",
+            "passWithNoTests": true
           }
         }
       }

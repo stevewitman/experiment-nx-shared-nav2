@@ -1,34 +1,28 @@
 {
   "implicitDependencies": {
     "angular.json": "*",
-    "package.json": {
-      "dependencies": "*",
-      "devDependencies": "*"
-    },
+    "package.json": { "dependencies": "*", "devDependencies": "*" },
     "tsconfig.base.json": "*",
     "tslint.json": "*",
     ".eslintrc.json": "*",
     "nx.json": "*"
   },
-  "affected": {
-    "defaultBase": "master"
-  },
+  "affected": { "defaultBase": "master" },
   "npmScope": "reusable-nav2",
   "tasksRunnerOptions": {
     "default": {
       "runner": "@nrwl/workspace/tasks-runners/default",
-      "options": {
-        "cacheableOperations": ["build", "lint", "test", "e2e"]
-      }
+      "options": { "cacheableOperations": ["build", "lint", "test", "e2e"] }
     }
   },
   "projects": {
-    "appone": {
-      "tags": []
-    },
-    "appone-e2e": {
-      "tags": [],
-      "implicitDependencies": ["appone"]
-    }
+    "appone": { "tags": [] },
+    "appone-e2e": { "tags": [], "implicitDependencies": ["appone"] },
+    "appone-shell": { "tags": [] },
+    "shared-ui-menu": { "tags": [] },
+    "appone-feat-home": { "tags": [] },
+    "appone-feat-about": { "tags": [] },
+    "appone-feat-contact": { "tags": [] },
+    "appone-feat-blog": { "tags": [] }
   }
 }

@@ -14,7 +14,18 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
-    "paths": {}
+    "paths": {
+      "@reusable-nav2/appone/shell": ["libs/appone/shell/src/index.ts"],
+      "@reusable-nav2/shared/ui-menu": ["libs/shared/ui-menu/src/index.ts"],
+      "@reusable-nav2/appone/feat-home": ["libs/appone/feat-home/src/index.ts"],
+      "@reusable-nav2/appone/feat-about": [
+        "libs/appone/feat-about/src/index.ts"
+      ],
+      "@reusable-nav2/appone/feat-contact": [
+        "libs/appone/feat-contact/src/index.ts"
+      ],
+      "@reusable-nav2/appone/feat-blog": ["libs/appone/feat-blog/src/index.ts"]
+    }
   },
   "exclude": ["node_modules", "tmp"]
 }
